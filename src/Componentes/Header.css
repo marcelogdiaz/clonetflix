@@ -1,0 +1,12 @@
+a.navbar-brand{
+    text-decoration: none;
+    margin: 30px;    
+}
+
+.left{
+    float: left;
+}
+
+.rigth{
+    float: right;
+}
