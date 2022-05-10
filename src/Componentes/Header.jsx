@@ -1,11 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 import { Navbar, NavDropdown } from "react-bootstrap";
 import styles from './Header.css';
 
 
 const Header = () => {
+
+    const [Logonetflix, setLogonetflix] = useState(false);  //Estado para el logo de netflix
+    const [usuario, setUsuario] = useState(false);  //Estado para el usuario
+    
+
     return (
-        <header>
+      <header>
         <Navbar bg="dark" variant="dark" className="left"> 
         <Navbar.Brand href="#home">
             <img
@@ -26,8 +31,17 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" className="rigth">
         <Navbar.Brand href="#home">Buscar</Navbar.Brand>
         <Navbar.Brand href="#home">Notificaciones</Navbar.Brand>
+        <Navbar.Brand title="Perfil" id="basic-nav-dropdown">
+                      <img
+                      alt=""
+                      src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+                      width="30"
+                      height="30"
+                      className="d-inline-block align-top"
+                    />Perfil
+        </Navbar.Brand>
 
-          <NavDropdown title="Perfil" id="basic-nav-dropdown">
+          {/* <NavDropdown title="Perfil" id="basic-nav-dropdown">
                       <img
                       alt=""
                       src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
@@ -42,7 +56,7 @@ const Header = () => {
             <NavDropdown.Item href="#action/3.3">Centro de Ayuda</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="#action/3.4">Cerrar Sesion en Netflix</NavDropdown.Item>
-        </NavDropdown>          
+        </NavDropdown>           */}
       </Navbar>      
     </header>
     );    
