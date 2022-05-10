@@ -1,13 +1,40 @@
 import React, {useState} from "react";
-import { Navbar, NavDropdown } from "react-bootstrap";
+import { Button, Navbar, NavDropdown } from "react-bootstrap";
 import styles from './Header.css';
 
 
 const Header = () => {
 
     const [Logonetflix, setLogonetflix] = useState(false);  //Estado para el logo de netflix
-    const [usuario, setUsuario] = useState(false);  //Estado para el usuario
+    const [usuario, setUsuario] = useState();  //Estado para el usuario
     
+
+    const handleLoginClick = () => {
+        setLogonetflix(true);
+        setUsuario("Usuario");
+    }
+        
+    const handleLogoutClick = () => {
+      setLogonetflix(false);
+      setUsuario("");
+  }
+
+    let button;
+    if (Logonetflix) {
+      button = <Navbar.Brand title="Perfil" id="basic-nav-dropdown"><img
+                    alt=""
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+                    width="30"
+                    height="30"
+                    className="d-inline-block align-top"
+                  />{usuario}
+                  <Button variant="link" onClick={handleLogoutClick}>  LogOut </Button>                  
+              </Navbar.Brand>
+    } else {
+      button = <Navbar.Brand title="Perfil" id="basic-nav-dropdown">
+                  <Button variant="link" onClick={handleLoginClick}>  LogIn </Button>                  
+              </Navbar.Brand>
+    }
 
     return (
       <header>
@@ -27,36 +54,9 @@ const Header = () => {
         <Navbar.Brand href="#home">Novedades</Navbar.Brand>
         <Navbar.Brand href="#home">Mi Lista</Navbar.Brand>    
       </Navbar>
-
+      
       <Navbar bg="dark" variant="dark" className="rigth">
-        <Navbar.Brand href="#home">Buscar</Navbar.Brand>
-        <Navbar.Brand href="#home">Notificaciones</Navbar.Brand>
-        <Navbar.Brand title="Perfil" id="basic-nav-dropdown">
-                      <img
-                      alt=""
-                      src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-                      width="30"
-                      height="30"
-                      className="d-inline-block align-top"
-                    />Perfil
-        </Navbar.Brand>
-
-          {/* <NavDropdown title="Perfil" id="basic-nav-dropdown">
-                      <img
-                      alt=""
-                      src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-                      width="30"
-                      height="30"
-                      className="d-inline-block align-top"
-                    />{' '}    
-          
-            <NavDropdown.Item href="#action/3.1">Administrar Perfil</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.2">Cuenta</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Centro de Ayuda</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Cerrar Sesion en Netflix</NavDropdown.Item>
-        </NavDropdown>           */}
+        {button}
       </Navbar>      
     </header>
     );    
