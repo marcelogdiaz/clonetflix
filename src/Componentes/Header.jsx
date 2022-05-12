@@ -9,15 +9,19 @@ const Header = ({usuario}) => {
    
 
     const handleLoginClick = () => {
+      console.log("LOGIN usuario.isLoggedIn", usuario.isLoggedIn);
         // setLogonetflix(true);
         // setUsuario("Usuario");
         //setIsLoggedContext(true);
+        usuario.isLoggedIn = true;
     }
         
     const handleLogoutClick = () => {
+      console.log("LOGOUT usuario.isLoggedIn", usuario.isLoggedIn);
       // setLogonetflix(false);
       // setUsuario("");
       //setIsLoggedContext(false);
+      usuario.isLoggedIn = false;
   }
 
     let button;
@@ -28,19 +32,28 @@ const Header = ({usuario}) => {
     // }
 
     if (usuario.isLoggedIn) {
-      button = <Navbar.Brand title="Perfil" id="basic-nav-dropdown"><img
-                    alt=""
-                    src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-                    width="30"
-                    height="30"
-                    className="d-inline-block align-top"
-                  />{usuario}
+      console.log("usuario.isLoggedIn HEADER", usuario.isLoggedIn);
+      // button = <Navbar.Brand title="Perfil" id="basic-nav-dropdown"><img
+      //               alt=""
+      //               src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+      //               width="30"
+      //               height="30"
+      //               className="d-inline-block align-top"
+      //             />{usuario}
+      //             <Button variant="danger" onClick={handleLogoutClick}>  LogOut </Button>                  
+      //         </Navbar.Brand>
+      button = <Navbar.Brand title="Perfil" id="basic-nav-dropdown">
                   <Button variant="danger" onClick={handleLogoutClick}>  LogOut </Button>                  
-              </Navbar.Brand>
+              </Navbar.Brand>      
+      //button = <Button variant="danger" onClick={handleLogoutClick}>  LogOut </Button>                  
+  
     } else {
+      console.log("usuario.isLoggedIn HEADER", usuario.isLoggedIn);
+      
       button = <Navbar.Brand title="Perfil" id="basic-nav-dropdown">
                   <Button variant="danger" onClick={handleLoginClick}>  LogIn </Button>                  
               </Navbar.Brand>
+      //button = <Button variant="danger" onClick={handleLoginClick}>  LogIn </Button>                  
     }
 
     return (

@@ -1,0 +1,9 @@
+.section_content{
+    position: relative;
+}
+.main_film{
+    position: absolute;
+    /* margin: -281px; */
+    top: 150px;
+    left: 150px;    
+}
