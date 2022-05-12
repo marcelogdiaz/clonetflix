@@ -1,26 +1,33 @@
-import React, {useState} from "react";
-import { Button, Navbar, NavDropdown } from "react-bootstrap";
+import React, {useContext, useState} from "react";
+import { Button, Navbar } from "react-bootstrap";
+import LoginContext from "../Contexts/LoginContext";
 import styles from './Header.css';
 
 
-const Header = () => {
-
-    const [Logonetflix, setLogonetflix] = useState(false);  //Estado para el logo de netflix
-    const [usuario, setUsuario] = useState();  //Estado para el usuario
-    
+const Header = ({usuario}) => {
+    //const [isLoggedContext, setIsLoggedContext] = useContext(LoginContext);
+   
 
     const handleLoginClick = () => {
-        setLogonetflix(true);
-        setUsuario("Usuario");
+        // setLogonetflix(true);
+        // setUsuario("Usuario");
+        //setIsLoggedContext(true);
     }
         
     const handleLogoutClick = () => {
-      setLogonetflix(false);
-      setUsuario("");
+      // setLogonetflix(false);
+      // setUsuario("");
+      //setIsLoggedContext(false);
   }
 
     let button;
-    if (Logonetflix) {
+    // if (Logonetflix) {
+    //   button = <Button variant="danger" onClick={handleLogoutClick}>  LogOut </Button>                  
+    // } else {
+    //   button = <Button variant="danger" onClick={handleLoginClick}>  LogIn </Button>                  
+    // }
+
+    if (usuario.isLoggedIn) {
       button = <Navbar.Brand title="Perfil" id="basic-nav-dropdown"><img
                     alt=""
                     src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
@@ -28,11 +35,11 @@ const Header = () => {
                     height="30"
                     className="d-inline-block align-top"
                   />{usuario}
-                  <Button variant="link" onClick={handleLogoutClick}>  LogOut </Button>                  
+                  <Button variant="danger" onClick={handleLogoutClick}>  LogOut </Button>                  
               </Navbar.Brand>
     } else {
       button = <Navbar.Brand title="Perfil" id="basic-nav-dropdown">
-                  <Button variant="link" onClick={handleLoginClick}>  LogIn </Button>                  
+                  <Button variant="danger" onClick={handleLoginClick}>  LogIn </Button>                  
               </Navbar.Brand>
     }
 
@@ -56,6 +63,7 @@ const Header = () => {
       </Navbar>
       
       <Navbar bg="dark" variant="dark" className="rigth">
+        {usuario.nombre}
         {button}
       </Navbar>      
     </header>

@@ -2,9 +2,10 @@
 import React from "react";
 import { Card, CardGroup } from "react-bootstrap";
 
-const ListFilm = () => {
+const ListFilm = ({usuario}) => {
     return (
         <div className="section_content">
+          <div> Estas son las peliculas de {usuario.nombre}</div>
           <CardGroup >
                 {[
             'Primary',

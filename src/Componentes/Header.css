@@ -1,6 +1,12 @@
+nav {
+    background-color: black;
+    color: white;
+    padding: 15px 0px;
+}
 a.navbar-brand{
     text-decoration: none;
     margin: 30px;    
+    color: white;
 }
 
 .left{
