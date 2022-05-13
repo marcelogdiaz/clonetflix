@@ -19,7 +19,7 @@ if (usuario.isLoggedIn) {
                       />
                 </div>    
                 <div className ="main_film">
-                  <h1>PELICULA PRINCIPAL</h1>                            
+                  <h1>RECOMENDACION para {usuario.nombre}</h1>                            
                 </div>
               </div>    
 } else {

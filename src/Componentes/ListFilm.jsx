@@ -4,6 +4,10 @@ import { Card, CardGroup } from "react-bootstrap";
 import styles from './ListFilm.css';
 
 const ListFilm = ({usuario}) => {
+
+  const apiTMDBUrl="https://api.themoviedb.org/3/movie/550";
+  const myAPIkey = ""
+
     return (
         <div className="section_content">
           <h1> Estas son las peliculas de: {usuario.nombre}</h1>
