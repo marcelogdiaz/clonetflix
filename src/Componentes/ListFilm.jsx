@@ -1,11 +1,12 @@
 
 import React from "react";
 import { Card, CardGroup } from "react-bootstrap";
+import styles from './ListFilm.css';
 
 const ListFilm = ({usuario}) => {
     return (
         <div className="section_content">
-          <div> Estas son las peliculas de {usuario.nombre}</div>
+          <h1> Estas son las peliculas de: {usuario.nombre}</h1>
           <CardGroup >
                 {[
             'Primary',

@@ -4,7 +4,7 @@ import LoginContext from "../Contexts/LoginContext";
 import styles from './Header.css';
 
 
-const Header = ({usuario}) => {
+const Header = ({usuario, onCambiarEstadoLogin}) => {
     //const [isLoggedContext, setIsLoggedContext] = useContext(LoginContext);
    
 
@@ -43,7 +43,7 @@ const Header = ({usuario}) => {
       //             <Button variant="danger" onClick={handleLogoutClick}>  LogOut </Button>                  
       //         </Navbar.Brand>
       button = <Navbar.Brand title="Perfil" id="basic-nav-dropdown">
-                  <Button variant="danger" onClick={handleLogoutClick}>  LogOut </Button>                  
+                  <Button variant="danger" value="logout" onClick={()=>onCambiarEstadoLogin(false, "Anonimo")}>  LogOut </Button>                  
               </Navbar.Brand>      
       //button = <Button variant="danger" onClick={handleLogoutClick}>  LogOut </Button>                  
   
@@ -51,7 +51,7 @@ const Header = ({usuario}) => {
       console.log("usuario.isLoggedIn HEADER", usuario.isLoggedIn);
       
       button = <Navbar.Brand title="Perfil" id="basic-nav-dropdown">
-                  <Button variant="danger" onClick={handleLoginClick}>  LogIn </Button>                  
+                  <Button variant="danger" value="login" onClick={()=>onCambiarEstadoLogin(true, "Juan Carlos")}>  LogIn </Button>                  
               </Navbar.Brand>
       //button = <Button variant="danger" onClick={handleLoginClick}>  LogIn </Button>                  
     }

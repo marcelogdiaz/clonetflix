@@ -11,11 +11,19 @@ function App() {
     nombre:"Anonimo",
     isLoggedIn: false});  //Estado para el usuario
 
+    const handleClick = (estadoLogin, nombreUsuario) => {
+      console.log(estadoLogin);
+      setUsuario({
+        nombre: nombreUsuario,
+        isLoggedIn: estadoLogin
+      });
+    }
+
   return (
     <div className="App">
       {/* <LoginContext.Provider value={false}> */}
 
-      <Header usuario={usuario}/>
+      <Header usuario={usuario} onCambiarEstadoLogin= {handleClick}/>
 
       <MainFilm usuario={usuario}/>
 
