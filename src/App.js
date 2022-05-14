@@ -18,7 +18,7 @@ function App() {
         nombre: nombreUsuario,
         isLoggedIn: estadoLogin
       });
-    }
+    }//
 
   return (
     <>
@@ -36,7 +36,7 @@ function App() {
       {/* </LoginContext.Provider> */}
 
     </div>
-    
+
     <div><SPeliculasPopulares usuario={usuario}/></div>
     </>
   );
