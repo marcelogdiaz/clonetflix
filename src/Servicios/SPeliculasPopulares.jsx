@@ -15,22 +15,25 @@ const SPeliculasPopulares = () => {
       }, []);
 
     //Petición a la API con timeOut que devuelve una promesa.
-    const getPeliculasPopulares = () => {
+   /* const getPeliculasPopulares = () => {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve(axios("https://api.themoviedb.org/3/movie/popular?api_key=98e4e46af373cfadf7a481b9e525f3de&language=en-US").then((response) => console.log(response.data)));
-            console.log("Paso el Resolve");
+            console.log("Se ejecutó el Resolve");
           }, 3000);
         });
-      };
+      };*/
 
     //Función Asincrónica que una vez que finaliza la petición a la API actualiza el estado peliculas.
     const getPopularMovies = async () => {
         try 
         {
-          const pelisPopulares = await getPeliculasPopulares();          
-          setPeliculas(pelisPopulares);          
+          const pelisPopulares = await /*getPeliculasPopulares()*/axios("https://api.themoviedb.org/3/movie/popular?api_key=98e4e46af373cfadf7a481b9e525f3de&language=en-US").then((response) => console.log(response.data));          
+          setPeliculas(pelisPopulares);         
+          console.log(peliculas.rusults);
           console.log("Se realizó la petición a la API.");
+         
+
         } catch (error) {
           console.log(error);
         }
@@ -38,9 +41,13 @@ const SPeliculasPopulares = () => {
 
   //Se devuelve un Jsx con el mapeo de películas.
   return (
+    
     <>
       <div>PELICULAS POPULARES</div>    
       <div>Aca Hay que mapear lo que ya está seteado en la variable peliculas del useState.</div> 
+      
+      
+      
     </>
   );
 }
