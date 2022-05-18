@@ -4,7 +4,6 @@ import Header from './Componentes/Header';
 import ListFilm from './Componentes/ListFilm';
 import MainFilm from './Componentes/MainFilm';
 import LoginContext from './Contexts/LoginContext';
-import SPeliculasPopulares from './Servicios/SPeliculasPopulares';
 
 function App() {
   
@@ -26,18 +25,17 @@ function App() {
       {/* <LoginContext.Provider value={false}> */}
 
       <Header usuario={usuario} onCambiarEstadoLogin= {handleClick}/>
-
+     
       <MainFilm usuario={usuario}/>
 
       <ListFilm usuario={usuario}/>
       
-      
-
+    
       {/* </LoginContext.Provider> */}
 
     </div>
-
-    <div><SPeliculasPopulares usuario={usuario}/></div>
+    
+  
     </>
   );
 }

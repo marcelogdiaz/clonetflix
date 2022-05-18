@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './MainFilm.css';
+import SPeliculasPopulares from '../Servicios/SPeliculasPopulares';
 
 const MainFilm = ({usuario}) => {
 
@@ -32,10 +33,13 @@ if (usuario.isLoggedIn) {
                         alt="First slide"
                         opacity= "0.5"
                       />
+
+                
                 </div>    
                 <div className ="main_film">
                   <h1>Películas y series ilimitadas y mucho más.</h1>          
                   <h4>{usuario.nombre} : Disfruta donde quieras. Cancela cuando quieras.</h4>
+                  <SPeliculasPopulares />
                 </div>
               </div>    
 }
