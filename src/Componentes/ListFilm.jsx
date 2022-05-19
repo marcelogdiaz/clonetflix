@@ -58,11 +58,9 @@ const ListFilm = ({usuario}) => {
         <div>cargando...</div>  
         ):
         (                 
-
           <>
-            
-            <div>PELICULA RECOMENDADA</div>    
-            <div>Elije una random cada vez que te logueas.</div>
+            <section className="section_content">
+            <h3>Populares en Netflix</h3>
             {/* <CardGroup> */}
             {             
                movies.map(movie => {
@@ -72,30 +70,25 @@ const ListFilm = ({usuario}) => {
                     key={movie.id}
                     // text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
                     // style={{ width: '18rem', display: 'inline', float: 'left' }}
-                    className="col-sm-2">
-                    <Card.Header>{movie.title}</Card.Header>
+                    className="col-sm-2">                    
                     <CardImg variant="top" src={path} />
-                    <Card.Body>
-                      {/* <Card.Title>{movie.title}</Card.Title> */}
+                    {/* <Card.Body>
                       <Card.Text>
                          <div>{(movie.overview).substring(0,100)+"..."}</div>
-                         {/* <div>{movie.release_date}</div> */}
-                         {/* <Button> */}
                          <div>
                          <Badge 
                           variant="secondary"
-                          pill="true"
-                          // className="mr-1 badge badge-pill badge-danger">
-                          >
+                          pill="true">
                             {movie.vote_average}</Badge>
-                            {/* </Button> */}
                             </div>
                       </Card.Text>
-                    </Card.Body>
+                    </Card.Body> */}
+                    <Card.Header>{movie.title}</Card.Header>
                   </Card>                  
                )})
              }   
             {/* </CardGroup> */}
+            </section>
           </>
         )
     }      

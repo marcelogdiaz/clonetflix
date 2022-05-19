@@ -5,22 +5,14 @@ import styles from './Header.css';
 
 
 const Header = ({usuario, onCambiarEstadoLogin}) => {
-    //const [isLoggedContext, setIsLoggedContext] = useContext(LoginContext);
-   
 
     const handleLoginClick = () => {
       console.log("LOGIN usuario.isLoggedIn", usuario.isLoggedIn);
-        // setLogonetflix(true);
-        // setUsuario("Usuario");
-        //setIsLoggedContext(true);
         usuario.isLoggedIn = true;
     }
         
     const handleLogoutClick = () => {
       console.log("LOGOUT usuario.isLoggedIn", usuario.isLoggedIn);
-      // setLogonetflix(false);
-      // setUsuario("");
-      //setIsLoggedContext(false);
       usuario.isLoggedIn = false;
   }
 
@@ -58,7 +50,7 @@ const Header = ({usuario, onCambiarEstadoLogin}) => {
 
     return (
       <header>
-        <Navbar bg="dark" variant="dark" className="left"> 
+        <Navbar variant="dark" className="left"> 
         <Navbar.Brand href="#home">
             <img
               alt=""
@@ -75,8 +67,8 @@ const Header = ({usuario, onCambiarEstadoLogin}) => {
         <Navbar.Brand href="#home">Mi Lista</Navbar.Brand>    
       </Navbar>
       
-      <Navbar bg="dark" variant="dark" className="rigth">
-        {usuario.nombre}
+      <Navbar variant="dark" className="rigth">
+        <Navbar.Brand >{usuario.nombre}</Navbar.Brand>
         {button}
       </Navbar>      
     </header>
