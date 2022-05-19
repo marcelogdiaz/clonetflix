@@ -1,17 +1,13 @@
 
 import React from "react";
 import { useEffect, useState } from "react";
-import { Card, CardImg } from "react-bootstrap";
 import styles from './ListFilm.css';
 import axios from "axios";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import * as configAPI from '../Config/configAPI.js';
 
 const ListFilm = ({usuario}) => {
-
-  const API_CHARACTERS = "https://api.themoviedb.org/3/movie/popular?api_key=98e4e46af373cfadf7a481b9e525f3de&language=en-US";
-  const apiTMDBUrl="https://api.themoviedb.org/3/movie/550";
-  const myAPIkey = ""
 
   const [movies, setMovies] = useState([]);    
   const [loading, setLoading] = useState(false);
@@ -28,8 +24,7 @@ const ListFilm = ({usuario}) => {
    const getPopular = () => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          //const url="https://api.themoviedb.org/3/movie/popular?api_key=98e4e46af373cfadf7a481b9e525f3de&language=en-US";
-          resolve(axios.get(API_CHARACTERS));
+          resolve(axios.get(configAPI.apiTMDBUrl + '?' +configAPI.myAPIkey + '&' + configAPI.languageUS));
           console.log("Se ejecutó el Resolve");
         },1000);
       });
@@ -67,7 +62,7 @@ const ListFilm = ({usuario}) => {
                     slidesPerView={movies.length/2} >
             {             
                movies.map(movie => {
-                  let path= "https://image.tmdb.org/t/p/w200/"+ movie.poster_path;
+                  let path= configAPI.apiIMGurl+ configAPI.imageSize200+ "/"+ movie.poster_path;
                   return (                    
                       <SwiperSlide>
                           <img variant="top" src={path} />

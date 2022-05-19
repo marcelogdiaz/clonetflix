@@ -5,17 +5,6 @@ import styles from './Header.css';
 
 
 const Header = ({usuario, onCambiarEstadoLogin}) => {
-
-    const handleLoginClick = () => {
-      console.log("LOGIN usuario.isLoggedIn", usuario.isLoggedIn);
-        usuario.isLoggedIn = true;
-    }
-        
-    const handleLogoutClick = () => {
-      console.log("LOGOUT usuario.isLoggedIn", usuario.isLoggedIn);
-      usuario.isLoggedIn = false;
-  }
-
     let button;
     // if (Logonetflix) {
     //   button = <Button variant="danger" onClick={handleLogoutClick}>  LogOut </Button>                  
@@ -24,16 +13,8 @@ const Header = ({usuario, onCambiarEstadoLogin}) => {
     // }
 
     if (usuario.isLoggedIn) {
-      console.log("usuario.isLoggedIn HEADER", usuario.isLoggedIn);
-      // button = <Navbar.Brand title="Perfil" id="basic-nav-dropdown"><img
-      //               alt=""
-      //               src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-      //               width="30"
-      //               height="30"
-      //               className="d-inline-block align-top"
-      //             />{usuario}
-      //             <Button variant="danger" onClick={handleLogoutClick}>  LogOut </Button>                  
-      //         </Navbar.Brand>
+      //console.log("usuario.isLoggedIn HEADER", usuario.isLoggedIn);
+
       button = <Navbar.Brand title="Perfil" id="basic-nav-dropdown">
                   <Button variant="danger" value="logout" onClick={()=>onCambiarEstadoLogin(false, "Anonimo")}>  LogOut </Button>                  
               </Navbar.Brand>      

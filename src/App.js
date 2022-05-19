@@ -31,7 +31,6 @@ function App() {
 
       <ListFilm usuario={usuario}/>
       
-    
       {/* </LoginContext.Provider> */}
 
     </div>
