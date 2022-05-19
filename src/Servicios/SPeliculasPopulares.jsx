@@ -24,8 +24,8 @@ const SPeliculasPopulares = () => {
      const getPopular = () => {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
-            const url="https://api.themoviedb.org/3/movie/popular?api_key=98e4e46af373cfadf7a481b9e525f3de&language=en-US";
-            resolve(axios.get(url));
+            //const url="https://api.themoviedb.org/3/movie/popular?api_key=98e4e46af373cfadf7a481b9e525f3de&language=en-US";
+            resolve(axios.get(API_CHARACTERS));
             console.log("Se ejecutó el Resolve");
           },1000);
         });
@@ -76,18 +76,14 @@ const SPeliculasPopulares = () => {
                     
                     <div>PELICULA RECOMENDADA</div>    
                     <div>Elije una random cada vez que te logueas.</div>
-
                     {             
-                       
-                       getRandomItem(movies?.map((movie) => (
+                        getRandomItem(movies?.map((movie) => (
                          <div >
                          <p>{movie.id}</p> 
                          <p>{movie.title}</p>           
                          </div>
                          )) )  
                      }   
-  
-
                   </>
                 )
             }      

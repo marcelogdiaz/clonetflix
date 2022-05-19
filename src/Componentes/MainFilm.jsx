@@ -4,9 +4,6 @@ import SPeliculasPopulares from '../Servicios/SPeliculasPopulares';
 
 const MainFilm = ({usuario}) => {
 
-  const apiTMDBUrl="https://api.themoviedb.org/3/movie/550";
-  const myAPIkey = ""
-
 let mainFilmTag;
 if (usuario.isLoggedIn) {
   console.log("usuario.isLoggedIn MAIN", usuario.isLoggedIn);

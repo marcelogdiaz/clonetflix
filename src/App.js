@@ -4,6 +4,7 @@ import Header from './Componentes/Header';
 import ListFilm from './Componentes/ListFilm';
 import MainFilm from './Componentes/MainFilm';
 import LoginContext from './Contexts/LoginContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   
