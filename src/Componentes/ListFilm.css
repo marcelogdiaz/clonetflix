@@ -1,25 +1,18 @@
-.card{
-    background-color: black !important;
-    /* width: 18rem;*/
-    display: inline;
-    float: left;
-    max-height: 680px !important;
-    margin: 2px;    
-}
-
-.card-img-top{
-    max-width: 250px;
-    max-height: 150px;
-    object-fit: cover;
-    /* background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;     */
-}
-
-.card-header{
+.swiper-title{
     position: absolute;
     top: 60%;
     font-size: 15px;
     font-weight: bold;
-    text-transform: uppercase; 
+    text-transform: uppercase;
+    text-align: center; 
+}
+
+.swiper-slide > img{
+    max-height: 200px;
+}
+
+.listfilm_content > h3{
+    text-align: left;
+    margin: auto;
+    width: 95%;
 }
