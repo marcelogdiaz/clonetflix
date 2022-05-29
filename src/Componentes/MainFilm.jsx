@@ -6,7 +6,6 @@ const MainFilm = ({usuario}) => {
 
 let mainFilmTag;
 if (usuario.isLoggedIn) {
-  console.log("usuario.isLoggedIn MAIN", usuario.isLoggedIn);
   mainFilmTag = <div className="mainFilm_content">
                   <img
                         className="d-block w-100"
@@ -14,12 +13,12 @@ if (usuario.isLoggedIn) {
                         alt="First slide"
                         opacity= "0.5"
                       />
-                <div className ="main_film">
-                  <h1>RECOMENDACION para {usuario.nombre}</h1>                            
-                </div>
+                  <div className ="main_film">
+                    {/* <h1>Película recomendada para {usuario.nombre}</h1>                             */}
+                    <SPeliculasPopulares />                  
+                  </div>
               </div>    
 } else {
-  console.log("usuario.isLoggedIn MAIN", usuario.isLoggedIn);
   mainFilmTag = <div className="mainFilm_content">
                   <img
                         className="d-block w-100"
@@ -27,11 +26,11 @@ if (usuario.isLoggedIn) {
                         alt="First slide"
                         opacity= "0.5"
                       />
-                <div className ="main_film">
-                  <h1>Películas y series ilimitadas y mucho más.</h1>          
-                  <h4>{usuario.nombre} : Disfruta donde quieras. Cancela cuando quieras.</h4>
-                  <SPeliculasPopulares />
-                </div>
+                  <div className ="main_film">
+                    <h1>Películas y series ilimitadas y mucho más.</h1>          
+                    <h3>Disfruta donde quieras. Cancela cuando quieras.</h3>
+                    <h4>Iniciá sesión ahora y podrás disfrutar de las películas más populares, las mejores series y mucho más.</h4>
+                  </div>
               </div>    
 }
 

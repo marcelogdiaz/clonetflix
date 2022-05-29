@@ -6,10 +6,15 @@
     /* margin: -281px; */
     top: 150px;
     left: 150px;    
+    text-align: center;
 }
 
 .mainFilm_content > img{
     max-height: 500px;
     object-fit: cover;
     opacity: 55%;
+}
+
+.left{
+    float: left;
 }

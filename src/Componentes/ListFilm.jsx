@@ -1,9 +1,10 @@
-
 import React from "react";
 import { useEffect, useState } from "react";
 import styles from './ListFilm.css';
 import axios from "axios";
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
+
 import 'swiper/css';
 import * as configAPI from '../Config/configAPI.js';
 
@@ -51,32 +52,32 @@ const ListFilm = ({usuario}) => {
 
     return (
     <>     
-    {loading ? (            
-        <div>cargando...</div>  
-        ):
+      {(loading ) ? (<div>cargando...</div> ):
         (                 
           <>
+          {(!usuario.isLoggedIn) ? (<div></div> ):(
             <section className="listfilm_content">
             <h3>Populares en Netflix</h3>
-            <Swiper
-                    slidesPerView={movies.length/2} >
-            {             
-               movies.map(movie => {
-                  let path= configAPI.apiIMGurl+ configAPI.imageSize200+ "/"+ movie.poster_path;
-                  return (                    
-                      <SwiperSlide>
-                          <img variant="top" src={path} />
-                          <div className="swipertitle">{movie.title}</div>
-                      </SwiperSlide>
-               )})               
-             }   
+            <Swiper slidesPerView={movies.length/2} >
+              {             
+                movies.map(movie => {
+                    let path= configAPI.apiIMGurl+ configAPI.imageSize200+ "/"+ movie.poster_path;
+                    return (                    
+                        <SwiperSlide>
+                            <img variant="top" src={path} />
+                            <div className="swipertitle">{movie.title}</div>
+                        </SwiperSlide>
+                )})               
+              }   
              </Swiper>
             </section>
+          )
+          }
           </>
         )
-    }      
-  </>
-  );         
+      }
+    </>
+    );         
 }
 
 export default ListFilm;

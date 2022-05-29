@@ -13,16 +13,12 @@ const Header = ({usuario, onCambiarEstadoLogin}) => {
     // }
 
     if (usuario.isLoggedIn) {
-      //console.log("usuario.isLoggedIn HEADER", usuario.isLoggedIn);
-
       button = <Navbar.Brand title="Perfil" id="basic-nav-dropdown">
                   <Button variant="danger" value="logout" onClick={()=>onCambiarEstadoLogin(false, "Anonimo")}>  LogOut </Button>                  
               </Navbar.Brand>      
       //button = <Button variant="danger" onClick={handleLogoutClick}>  LogOut </Button>                  
   
     } else {
-      console.log("usuario.isLoggedIn HEADER", usuario.isLoggedIn);
-      
       button = <Navbar.Brand title="Perfil" id="basic-nav-dropdown">
                   <Button variant="danger" value="login" onClick={()=>onCambiarEstadoLogin(true, "Juan Carlos")}>  LogIn </Button>                  
               </Navbar.Brand>
